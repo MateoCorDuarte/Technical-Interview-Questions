@@ -5,7 +5,7 @@ C++ is an object-oriented programming language created by Bjarne Stroustrup. It 
 </details>
 
 <details>
-<summary>2. What is the difference between C and C++?<summary>
+<summary>2. What is the difference between C and C++?</summary>
 
 | C | C++ |
 | -------- | ------- |
@@ -15,84 +15,85 @@ C++ is an object-oriented programming language created by Bjarne Stroustrup. It 
 | Functio and operator overloading are not supported in C.|Function and operator overloading is supported in C++.|
 |Functions can not be defined inside structures|Functions can be defined inside structures. |
 |*calloc()* and *malloc()* functions are used for memory allocation and *free()*|New operator is used for memory allocation and deletes operator is used for memory deallocation.|
-<details>
+</details>
 
 # Questions regarding C++ syntax.
 <details>
-<summary>3. What are constructors and destructors? <summary>
-*Constructors* are member function with the same name as the class. They allows to initialize a value to the attributes of the object. 
+<summary>3. What are constructors and destructors? </summary>
+Constructors are member function with the same name as the class. They allows to initialize a value to the attributes of the object. 
 
-There are three types of constructors :
-+ Default: 
-+ Parameterized:
-+ Copy:
-<details>
-
-<details>
-<summary>4. What is the difference between call by Value and call by reference?<summary>
-<details>
+    There are three types of constructors :
+    + Default: Has no arguments.
+    + Parameterized: Takes arguments to initialize the object with specific values.
+    + Copy: Creates a new object as a copy of an existing object.
+</details>
 
 <details>
-<summary>5. What is std?<summary>
+<summary>4. What is the difference between call by Value and call by reference?</summary>
+When you call by value ("int main") the function take as a parameter a copy of the value of the variable, while the call by reference the function takes a pointer towards the addres of the variable. This means that when you call by reference you can modify the variable
+</details>
 
 <details>
+<summary>5. What is std?</summary>
+
+</details>
 
 <details>
-<summary>6. what is a namespace?<summary>
-<details>
+<summary>6. what is a namespace?</summary>
+</details>
 
 <details>
-<summary>7. What is the difference between call by value and call by reference ?<summary>
+<summary>7. What is the difference between call by value and call by reference ?</summary>
+
+</details>
 
 <details>
+<summary>8. What is the difference between reference and pointer? </summary>
+</details>
 
 <details>
-<summary>8. What is the difference between reference and pointer? <summary>
-<details>
+<summary>9. What is the diffence between Array and lists?</summary>
+</details>
 
 <details>
-<summary>9. What is the diffence between Array and lists?<summary>
-<details>
+<summary>10. Discuss the difference between prefix and postfix?</summary>
+</details>
 
 <details>
-<summary>10. Discuss the difference between prefix and postfix?<summary>
-<details>
+<summary>11. What is the difference between virtual functions and pure virtual functions?</summary>
+</details>
 
 <details>
-<summary>11. What is the difference between virtual functions and pure virtual functions?<summary>
-<details>
-
-<details>
-<summary>13. What are constructor and destructor in c++?<summary>
-<details>
+<summary>13. What are constructor and destructor in c++?</summary>
+</details>
 
 # Questions regarding Object-oriented Programming.
 <details>
-<summary>14. What is the difference between class and struct? <summary>
+<summary>14. What is the difference between class and struct? </summary>
 A struct is a collection of variables that are public by default. In contrast, a class has its variables set to private by default. Additionally, a class can use member functions and operator overloading to perform operations on its variables.
-<details>
+</details>
 
 <details>
-<summary>15. What is a constructor? <summary>
-<details>
+<summary>15. What is a constructor? </summary>
+</details>
 
 <details>
-<summary>16. What are the C++ acces specifiers? <summary>
-<details>
+<summary>16. What are the C++ acces specifiers? </summary>
+</details>
 
 
 <details>
-<summary>17. What is a virtual function? <summary>
-<details>
+<summary>17. What is a virtual function? </summary>
+</details>
 
 <details>
-<summary>18. What are the different types of polymorphism in C++?<summary>
-<details>
+<summary>18. What are the different types of polymorphism in C++?</summary>
+</details>
 
 <details>
-<summary>19. What are friend class and friend function?<summary>
-<details>
+<summary>19. What are friend class and friend function?</summary>
+</details>
 
 <details>
-<summary>20. What is an abstract Class and when do we use it ??<summary>
-<details>
+<summary>20. What is an abstract Class and when do we use it ??</summary>
+</details>
