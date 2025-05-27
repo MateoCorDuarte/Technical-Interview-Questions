@@ -1,7 +1,9 @@
 # RTOS
-RTOS (Real-time operating system) is an operating system designed to be small. It is used mainly in devices that need to react to external events within strict time constraints.
+*RTOS* (Real-time operating system) is an operating system designed to be small. It is used mainly in devices that need to react to external events within strict time constraints.
+*Task* = threat(in small RTOSes because they don't support virtual memory)
 
-Multitasking. 
+
+*Multitasking:* Multiple users can use 
 
 
 Blocking and non-blocking wait: 
