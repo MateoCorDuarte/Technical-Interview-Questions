@@ -3,7 +3,7 @@
 *Task* = threat(in small RTOSes because they don't support virtual memory)
 
 
-*Multitasking:* Multiple users can use 
+*Multitasking:* and inter-task communications features of the OS allow to partition and set a complex application into a set of small and more manageable tasks. 
 
 
 Blocking and non-blocking wait: 
