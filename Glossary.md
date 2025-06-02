@@ -4,8 +4,13 @@
 
 *Concurrency:* Switching tasks to resemble multitasking.
 
-*ALU:*
-*MCU:*
-*CPU:*
-*SoC:*
-*IoT: *
+*ALU:*.
+
+*MCU:*.
+
+*CPU:*.
+
+*SoC:*.
+
+*IoT: *.
+
