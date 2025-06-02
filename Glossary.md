@@ -1,5 +1,6 @@
 # Concepts you might want to remember. 
 *RISC:* Reduced Instruction Set Computer. It is a type of processor architecture that prioritizes speed and simplicity by using a small and optimized set of instructions. 
+
 *CISC:* Complex Instruction Set Computer. This other processor architecture aims to perform more complex operations with fewer instructions.
 ## Embedded system:
 It is a specialized computing system (system set for calculations and data manipulations(storage and reading)) with chip-enabled hardware (integrated circuits hardware (does this mean that it must be based on ICs?)). 
