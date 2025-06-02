@@ -1,4 +1,6 @@
 # Concepts you might want to remember. 
+*RISC:* Reduced Instruction Set Computer. It is a type of processor architecture that prioritizes speed and simplicity by using a small and optimized set of instructions. 
+*CISC:* Complex Instruction Set Computer. This other processor architecture aims to perform more complex operations with fewer instructions.
 ## Embedded system:
 It is a specialized computing system (system set for calculations and data manipulations(storage and reading)) with chip-enabled hardware (integrated circuits hardware (does this mean that it must be based on ICs?)). 
 
@@ -27,7 +29,7 @@ Challenges are:
 
 *MCU:* Microcontroller unit, which contains a microprocessor, digital I/O, analog I/O, timers, data memory (variables, addresses, etc.), program memory (executable instructions), and other peripherals.
 
-*CPU: (microprocessor)* Central processing unit. It's a multipurpose, clock-driven, programmable electronic device, designed to perform arithmetical and logic units using an ALU. It's the central core of an embedded system. It is a multipurpose 
+*CPU: (microprocessor)* Central processing unit. It's a multipurpose, clock-driven, programmable electronic device, designed to perform arithmetical and logic units using an ALU. It's the central core of an embedded system. 
 
 *SoC:*.
 
