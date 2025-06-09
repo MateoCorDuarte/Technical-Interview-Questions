@@ -2,6 +2,7 @@
 *RISC:* Reduced Instruction Set Computer. It is a type of processor architecture that prioritizes speed and simplicity by using a small and optimized set of instructions. 
 
 *CISC:* Complex Instruction Set Computer. This other processor architecture aims to perform more complex operations with fewer instructions.
+
 ## Embedded system:
 It is a specialized computing system (system set for calculations and data manipulations(storage and reading)) with chip-enabled hardware (integrated circuits hardware (does this mean that it must be based on ICs?)). 
 
@@ -30,10 +31,12 @@ Challenges are:
 
 *MCU:* Microcontroller unit, which contains a microprocessor, digital I/O, analog I/O, timers, data memory (variables, addresses, etc.), program memory (executable instructions), and other peripherals.
 
-*CPU: (microprocessor)* Central processing unit. It's a multipurpose, clock-driven, programmable electronic device, designed to perform arithmetical and logic units using an ALU. It's the central core of an embedded system. 
+*CPU: (microprocessor)* Central processing unit. It's a multipurpose, clock-driven, programmable electronic device, designed to perform arithmetical and logic operations using an ALU. It's the central core of an embedded system. 
 
 *SoC:*.
 
-*IoT: *.
+*DAP:* Debug Acces port. Is a port that provides an interface for external debuggers to access and control the internal state of the embedded system. This debugger allows you to load code, set breakpoints, step through code, or inspect memory and registers.
 
+*TLS:* Transport Layer Security. It is a cryptographic protocol designed to provide secure communication over a computer network. It's the successor to SSL (Secure Sockets Layer). It is vital when connecting to other devices to ensure and secure data transmission. 
 
+*CMSIS: * (Common Microcontroller Software interface standard). Is the set of hardware abstraction layers and software components defined by ARM to standardize software interfaces to the processor and its peripherals. 
