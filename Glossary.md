@@ -3,6 +3,7 @@
 
 *CISC:* Complex Instruction Set Computer. This other processor architecture aims to perform more complex operations with fewer instructions.
 
+
 ## Embedded system:
 It is a specialized computing system (system set for calculations and data manipulations(storage and reading)) with chip-enabled hardware (integrated circuits hardware (does this mean that it must be based on ICs?)). 
 
@@ -35,12 +36,18 @@ Challenges are:
 
 *SoC:*.
 
-*DAP:* Debug Acces port. Is a port that provides an interface for external debuggers to access and control the internal state of the embedded system. This debugger allows you to load code, set breakpoints, step through code, or inspect memory and registers.
+*DAP:* Debug Access port. It is a port that provides an interface for external debuggers to access and control the internal state of the embedded system. This debugger allows you to load code, set breakpoints, step through code, or inspect memory and registers.
 
 *TLS:* Transport Layer Security. It is a cryptographic protocol designed to provide secure communication over a computer network. It's the successor to SSL (Secure Sockets Layer). It is vital when connecting to other devices to ensure and secure data transmission. 
 
 *CMSIS: * (Common Microcontroller Software Interface Standard). It is the set of hardware abstraction layers and software components defined by ARM to standardize software interfaces to the processor and its peripherals. 
+## GPIO
+*Current sinking*: The pin receives current from a load. Example: from load -> to pin -> to GND.
+
+*Current Sourcing*: The pin supplies current to a load. Example: from pin -> to load -> to GND.
 
 ## Interupts
-
+Interrupts are a hardware-triggered asynchronous routine, which means external hardware can start a local software.
 *Polling:* is the task of constantly checking something. (It's inefficient and slow as it blocks the threat from doing something else, even when nothing happens). 
+
+*Hardwired CPU:* It is the state the code gets, where it stores the previous task before switching to an interrupt routine.
