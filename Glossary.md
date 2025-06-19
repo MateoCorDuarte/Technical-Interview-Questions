@@ -41,6 +41,10 @@ Challenges are:
 *TLS:* Transport Layer Security. It is a cryptographic protocol designed to provide secure communication over a computer network. It's the successor to SSL (Secure Sockets Layer). It is vital when connecting to other devices to ensure and secure data transmission. 
 
 *CMSIS: * (Common Microcontroller Software Interface Standard). It is the set of hardware abstraction layers and software components defined by ARM to standardize software interfaces to the processor and its peripherals. 
+
+*Registers: * These are small, extremely fast storage locations built directly into the CPU. Is faster than cache, RAM, and Hard drive.
+
+
 ## GPIO
 *Current sinking*: The pin receives current from a load. Example: from load -> to pin -> to GND.
 
