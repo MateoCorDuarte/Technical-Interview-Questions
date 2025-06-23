@@ -10,10 +10,6 @@ In the case of a fire alarm, all customers must leave the shop in an orderly fas
 */
 #include "mbed.h"
 
-#define BUTTON_1 p5 //ADULT
-#define BUTTON_2 p6 //child
-#define BUTTON_3 p7 //fire alarm
-
 #define RED_LED p8 //No entry light
 #define BLUE_LED p9 //barber 1 seat
 #define YELLOW_LED p10 //barber2 seat
@@ -22,39 +18,64 @@ In the case of a fire alarm, all customers must leave the shop in an orderly fas
 //Waiting seats
 
 //Define interrupt inputs
-InterruptIn  adult(BUTTON_1);
-InterruptIn  child(BUTTON_2);
-InterruptIn  fire_alarm(BUTTON_3);
+InterruptIn  adult(p5);
+InterruptIn  child(p6);
+InterruptIn  fire_alarm(p7);
 
 //Define outputs
 DigitalOut no_entry(RED_LED);
 DigitalOut barber_1(BLUE_LED);
 DigitalOut barber_2(YELLOW_LED);
 DigitalOut barber_3(WHITE_LED);
+DigitalOut wall_clk(p12);
+BusOut seating (p13,p14,p15,p16,p17,p18,p19,p20);//waiting area chairs
 
 //Define counters
-volatile unsigned int queue;
-volatile unsigned int count1;
-volatile unsigned int count2;
-volatile unsigned int count3;
+volatile unsigned int time1,time2,time3; //timer of each barber
+volatile signed int seats_pat,child_no,adult_no; //number of total people, kid, adult
 
 void adult_handler(){
-	if(queue<=7)queue++;
-	if(queue==8)no_entry=1;
+	if(seats_pat<=7){
+		adult_no++;
+		seats_pat++;
+	}
+	if(seats_pat==8)no_entry=1;
 }
 
 void child_handler(){
-	if(queue<=7)queue=2+queue;
-	if(queue>=8)no_entry=1;
+	if(seats_pat<=7){
+		seats_pat=2+seats_pat;
+		adult_no++;
+		child_no++;
+	}
+	if(seats_pat>=8)no_entry=1;
 	
 }
 
 void fire_alarm_handler(){
-	
-	//Write your code here
-	
+	no_entry=1;//as the barber shop is no longer available.
+	//We restart every input and output counters
+	time1=time2=time3=0;
+	seats_pat=child_no=adult_no=0;
+	barber_1= barber_2= barber_3= wall_clk=0;
 }
-
+void checking_barber_1_2(DigitalOut &barber,volatile unsigned int &timer){
+	if(barber==0){//Barber not available
+			time--;
+			if(time==0){
+		//when the barber finishes cutting hair, restart the default values
+				barber=1;
+				time=12;
+			}
+		}
+		if(barber==1){//barber available
+			if(0<adult_no){
+				baber=0;
+				adult_no--;
+				timer--;
+			}
+		}
+}
 int main(){
 		
 	//Initially turn off all LEDs
@@ -63,16 +84,30 @@ int main(){
 	barber_2=0;
 	barber_3=0;
 	no_entry=0;
-	queue=0;
+	Seats_pat=child_no=adult_no=0;
 	//Interrupt handlers
 	adult.rise(&adult_handler);
 	child.rise(&child_handler);
 	fire_alarm.rise(&fire_alarm_handler);
-	//Attach the address of the ISR to the rising edge
-	
-	//Write your code here
-	
 	//wait 100 ms
-	while(1)
+	while(1){
+		checking_barber_1_2(&barber1,&timer1);
+		checking_barber_1_2(&barber2,&timer2);
+		if(barber1==0){//Barber not available
+			time1--;
+			if(time1==0){
+		//when the barber finishes cutting hair, restart the default values
+				barber1=1;
+				time1=12;
+			}
+		}
+		if(barber1==1){//barber available
+			if(0<adult_no){
+				baber1=0;
+				adult_no--;
+				timer1--;
+			}
+		}
 		wait_ms(100);
+	}
 }
