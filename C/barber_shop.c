@@ -25,7 +25,6 @@ In the case of a fire alarm, all customers must leave the shop in an orderly fas
 DigitalIn  adult(BUTTON_1);
 DigitalIn  child(BUTTON_2);
 DigitalIn  fire_alarm(BUTTON_3);
-DigitalIn  temperature(SWITCH_2);
 
 //Define outputs
 DigitalOut no_entry(RED_LED);
@@ -33,4 +32,45 @@ DigitalOut barber_1(BLUE_LED);
 DigitalOut barber_2(YELLOW_LED);
 DigitalOut barber_3(WHITE_LED);
 
+//Define counters
+volatile unsigned int count1;
+volatile unsigned int count2;
+volatile unsigned int count3;
 
+void button_1_handler(){
+	
+	//Write your code here
+
+}
+
+void button_2_handler(){
+	
+	//Write your code here
+	
+}
+
+void button_3_handler(){
+	
+	//Write your code here
+	
+}
+
+int main(){
+		
+	//Initially turn off all LEDs
+  
+	barber_1=0;
+  barber_2=0;
+  barber_3=0;
+	//Interrupt handlers
+  adult.rise(&button_1_handler);
+	child.rise(&button_2_handler);
+	fire_alarm.rise(&button_3_handler);
+	//Attach the address of the ISR to the rising edge
+	
+	//Write your code here
+	
+	//wait 100 ms
+	while(1)
+		wait_ms(100);
+}
