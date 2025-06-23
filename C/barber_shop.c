@@ -9,7 +9,9 @@ children’s parents however remain in the waiting area until their child’s ha
 In the case of a fire alarm, all customers must leave the shop in an orderly fashion. 
 */
 #include "mbed.h"
-
+/*I was trying to do one function so I didn't need to do all the process of 
+checking on the availabilities.
+*/
 #define RED_LED p8 //No entry light
 #define BLUE_LED p9 //barber 1 seat
 #define YELLOW_LED p10 //barber2 seat
@@ -31,8 +33,8 @@ DigitalOut wall_clk(p12);
 BusOut seating (p13,p14,p15,p16,p17,p18,p19,p20);//waiting area chairs
 
 //Define counters
-volatile unsigned int time1,time2,time3; //timer of each barber
-volatile signed int seats_pat,child_no,adult_no; //number of total people, kid, adult
+int time1,time2,time3; //timer of each barber
+int seats_pat,child_no,adult_no; //number of total people, kid, adult
 
 void adult_handler(){
 	if(seats_pat<=7){
@@ -59,20 +61,21 @@ void fire_alarm_handler(){
 	seats_pat=child_no=adult_no=0;
 	barber_1= barber_2= barber_3= wall_clk=0;
 }
-void checking_barber_1_2(DigitalOut &barber,volatile unsigned int &timer){
+
+void checking_barber_1_2(DigitalOut *barber,int *timer){
 	if(barber==0){//Barber not available
-			time--;
-			if(time==0){
+			timer++;
+			if(timer==12){
 		//when the barber finishes cutting hair, restart the default values
 				barber=1;
-				time=12;
+				timer=0;
 			}
 		}
 		if(barber==1){//barber available
 			if(0<adult_no){
-				baber=0;
+				barber=0;
 				adult_no--;
-				timer--;
+				timer++;
 			}
 		}
 }
@@ -84,15 +87,15 @@ int main(){
 	barber_2=0;
 	barber_3=0;
 	no_entry=0;
-	Seats_pat=child_no=adult_no=0;
+	seats_pat=child_no=adult_no=0;
 	//Interrupt handlers
 	adult.rise(&adult_handler);
 	child.rise(&child_handler);
 	fire_alarm.rise(&fire_alarm_handler);
 	//wait 100 ms
 	while(1){
-		checking_barber_1_2(&barber1,&timer1);
-		checking_barber_1_2(&barber2,&timer2);
+		checking_barber_1_2(&barber_1,&time1);
+		checking_barber_1_2(&barber_2,&time2);
 		if(barber1==0){//Barber not available
 			time1--;
 			if(time1==0){
@@ -111,3 +114,4 @@ int main(){
 		wait_ms(100);
 	}
 }
+
