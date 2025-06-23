@@ -18,13 +18,13 @@ In the case of a fire alarm, all customers must leave the shop in an orderly fas
 #define BLUE_LED p9 //barber 1 seat
 #define YELLOW_LED p10 //barber2 seat
 #define WHITE_LED p11 //barber 3 seat
-#define WHITE_LED p12 //wall clock
+//#define WHITE_LED p12 //wall clock
 //Waiting seats
 
 //Define interrupt inputs
-DigitalIn  adult(BUTTON_1);
-DigitalIn  child(BUTTON_2);
-DigitalIn  fire_alarm(BUTTON_3);
+InterruptIn  adult(BUTTON_1);
+InterruptIn  child(BUTTON_2);
+InterruptIn  fire_alarm(BUTTON_3);
 
 //Define outputs
 DigitalOut no_entry(RED_LED);
@@ -33,23 +33,23 @@ DigitalOut barber_2(YELLOW_LED);
 DigitalOut barber_3(WHITE_LED);
 
 //Define counters
+volatile unsigned int queue;
 volatile unsigned int count1;
 volatile unsigned int count2;
 volatile unsigned int count3;
 
-void button_1_handler(){
-	
-	//Write your code here
-
+void adult_handler(){
+	if(queue<=7)queue++;
+	if(queue==8)no_entry=1;
 }
 
-void button_2_handler(){
-	
-	//Write your code here
+void child_handler(){
+	if(queue<=7)queue=2+queue;
+	if(queue>=8)no_entry=1;
 	
 }
 
-void button_3_handler(){
+void fire_alarm_handler(){
 	
 	//Write your code here
 	
@@ -60,12 +60,14 @@ int main(){
 	//Initially turn off all LEDs
   
 	barber_1=0;
-  barber_2=0;
-  barber_3=0;
+	barber_2=0;
+	barber_3=0;
+	no_entry=0;
+	queue=0;
 	//Interrupt handlers
-  adult.rise(&button_1_handler);
-	child.rise(&button_2_handler);
-	fire_alarm.rise(&button_3_handler);
+	adult.rise(&adult_handler);
+	child.rise(&child_handler);
+	fire_alarm.rise(&fire_alarm_handler);
 	//Attach the address of the ISR to the rising edge
 	
 	//Write your code here
