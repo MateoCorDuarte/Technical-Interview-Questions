@@ -34,6 +34,7 @@ BusOut seating (p13,p14,p15,p16,p17,p18,p19,p20);//waiting area chairs
 
 //Define counters
 int time1,time2,time3; //timer of each barber
+int on=1,off=0,time_max=12,start_time=0;
 int seats_pat,child_no,adult_no; //number of total people, kid, adult
 
 void adult_handler(){
@@ -61,24 +62,25 @@ void fire_alarm_handler(){
 	seats_pat=child_no=adult_no=0;
 	barber_1= barber_2= barber_3= wall_clk=0;
 }
-
+/*
 void checking_barber_1_2(DigitalOut *barber,int *timer){
+    on=1,off=0,time_max=12,start_time=0;
 	if(barber==0){//Barber not available
 			timer++;
-			if(timer==12){
+			if(timer==&time_max){
 		//when the barber finishes cutting hair, restart the default values
-				barber=1;
-				timer=0;
+				barber=!barber;
+				timer=&start_time;
 			}
 		}
-		if(barber==1){//barber available
+		if(barber==&on){//barber available
 			if(0<adult_no){
-				barber=0;
+				barber=!barber;
 				adult_no--;
 				timer++;
 			}
 		}
-}
+}*/
 int main(){
 		
 	//Initially turn off all LEDs
@@ -94,24 +96,38 @@ int main(){
 	fire_alarm.rise(&fire_alarm_handler);
 	//wait 100 ms
 	while(1){
-		checking_barber_1_2(&barber_1,&time1);
-		checking_barber_1_2(&barber_2,&time2);
-		if(barber1==0){//Barber not available
+		/*checking_barber_1_2(&barber_1,&time1);
+		checking_barber_1_2(&barber_2,&time2);*/
+		if(barber_1==0){//Barber not available
 			time1--;
 			if(time1==0){
 		//when the barber finishes cutting hair, restart the default values
-				barber1=1;
+				barber_1=1;
 				time1=12;
 			}
 		}
-		if(barber1==1){//barber available
+		if(barber_1==1){//barber available
 			if(0<adult_no){
-				baber1=0;
+				barber_1=0;
 				adult_no--;
-				timer1--;
+				time1--;
+			}
+		}
+		if(barber_2==0){//Barber not available
+			time2--;
+			if(time2==0){
+		//when the barber finishes cutting hair, restart the default values
+				barber_2=1;
+				time2=12;
+			}
+		}
+		if(barber_2==1){//barber available
+			if(0<adult_no){
+				barber_2=0;
+				adult_no--;
+				time2--;
 			}
 		}
 		wait_ms(100);
 	}
 }
-
