@@ -1,0 +1,35 @@
+/*
+You are developing the monitoring (but not control) system for a heating tank in an industrial process. There are two sensors in the tank, one for temperature and the other for level. Four output states must be detected, each triggering a different audible status tone: 
+
+Tank is full, temperature too high (upper third of temperature range) : two-tone  
+Tank is full, temperature is good (middle third of temperature range): steady continuous tone 
+Tank is full, temperature too low (lower third of temperature range): single beeping tone 
+Tank level is too low (tank less than three quarters full), any temperature: frequency-modulated “warble”  tone, flashing LED 
+Sensors must be tested at least once every two seconds. 
+
+Write a program to meet this requirement, testing and demonstrating it on the Mbed simulator. Use potentiometers for tank level and temperature, and the Pwm speaker to generate the audible status signals.
+*/
+
+#include "mbed.h"
+
+#define SPEAKER p21
+#define AIN1 p15
+#define AIN2 p16
+
+// Define the PWM speaker output
+// Define analog inputs
+
+//Write your code here
+
+//Define variables
+float i;
+/*----------------------------------------------------------------------------
+ MAIN function
+ *----------------------------------------------------------------------------*/
+int main(){
+    while(1){
+        // Create a saw-tooth sound wave
+        // Make the period and volume adjustable using the potentiometers
+        wait_ms(100);
+    }
+}
