@@ -28,16 +28,14 @@ if the temperature is too high. -> two tone
 PwmOut speaker(SPEAKER);
 
 // Define analog inputs
-AnalogIn port1(AIN1);
-AnalogIn port2(AIN2);
+AnalogIn level(AIN1); //tank level
+AnalogIn temp(AIN2); //temperature level
 //Write your code here
 
 DigitalOut low_level(RED_LED);
 
 //Define variables
-float val1;
-float val2;
-float i;
+float loval, hival, i;
 
 /* full && Temperature too high. temperature > 2/3 range.
 +  full && good temperature. 2/3 >= temperature >= 1/3.
@@ -48,7 +46,13 @@ float i;
  MAIN function
  *----------------------------------------------------------------------------*/
 int main(){
+ low_level=1;
     while(1){
+     
+     while(low_level==1){
+      //first sub loop, check the level of the water.
+      //if(level<((3/4)*water_range){Low_level=0;}
+     }
         // Create a saw-tooth sound wave
         // Make the period and volume adjustable using the potentiometers
         wait_ms(100);
