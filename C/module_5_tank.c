@@ -19,6 +19,7 @@ if the temperature is too high. -> two tone
 
 #include "mbed.h"
 
+#define RED_LED p5
 #define SPEAKER p21
 #define AIN1 p15
 #define AIN2 p16
@@ -30,6 +31,8 @@ PwmOut speaker(SPEAKER);
 AnalogIn port1(AIN1);
 AnalogIn port2(AIN2);
 //Write your code here
+
+DigitalOut low_level(RED_LED);
 
 //Define variables
 float val1;
