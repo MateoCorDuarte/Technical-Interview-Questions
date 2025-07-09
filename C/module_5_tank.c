@@ -8,6 +8,13 @@ Tank level is too low (tank less than three quarters full), any temperature: fre
 Sensors must be tested at least once every two seconds. 
 
 Write a program to meet this requirement, testing and demonstrating it on the Mbed simulator. Use potentiometers for tank level and temperature, and the Pwm speaker to generate the audible status signals.
+
+-------------------------------------------------------------------------------------------------------------------------------
+First, check the temperature. If it's too low, turn on the  flashing LED.  
+
+if not, then check the temperature
+if the temperature is too high. -> two tone
+
 */
 
 #include "mbed.h"
@@ -17,12 +24,23 @@ Write a program to meet this requirement, testing and demonstrating it on the Mb
 #define AIN2 p16
 
 // Define the PWM speaker output
-// Define analog inputs
+PwmOut speaker(SPEAKER);
 
+// Define analog inputs
+AnalogIn port1(AIN1);
+AnalogIn port2(AIN2);
 //Write your code here
 
 //Define variables
+float val1;
+float val2;
 float i;
+
+/* full && Temperature too high. temperature > 2/3 range.
++  full && good temperature. 2/3 >= temperature >= 1/3.
++  full && low temperature. 1/3 >= temperature.
++  empty/low && any temperature. 3/4 >= water level. 
+*/
 /*----------------------------------------------------------------------------
  MAIN function
  *----------------------------------------------------------------------------*/
