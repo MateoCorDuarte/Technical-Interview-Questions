@@ -41,8 +41,6 @@ float loval, hival, i;
 +  full && good temperature. 2/3 >= temperature >= 1/3.
 +  full && low temperature. 1/3 >= temperature.
 +  empty/low && any temperature. 3/4 >= water level. 
-/*----------------------------------------------------------------------------
- MAIN function
  *----------------------------------------------------------------------------*/
 int main(){
  low_level=1;
@@ -55,13 +53,19 @@ int main(){
                 wait_ms (50); 
             } 
         }
+     low_level=0;
         //first sub loop, check the level of the water.
-        if(temp.read()<0.33){// if low value
-            hival = 0.005;
-            loval = 1;
+        if(temp.read()<0.33){// temp to low
+            hival = 0.005; //set 200 Hz as tone 
+            loval = 1;//no output wanted for 2nd tone, so set to (inaudible)1 Hz
         } 
+        else if(temp.read()>0.66){//temp too high
+            hival = 0.001; //set 1000 Hz as upper tone
+            loval = 0.005; //set 200 Hz as lower tone 
+        }
         else if((temp.read()<0.66)&&(temp.read()>0.33)){
-            
+             hival = 0.002; //set 500 Hz as upper tone 
+             loval = 0.002; //set 500 Hz as lower tone  
         }
         
             // Create a saw-tooth sound wave
