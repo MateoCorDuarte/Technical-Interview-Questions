@@ -41,20 +41,31 @@ float loval, hival, i;
 +  full && good temperature. 2/3 >= temperature >= 1/3.
 +  full && low temperature. 1/3 >= temperature.
 +  empty/low && any temperature. 3/4 >= water level. 
-*/
 /*----------------------------------------------------------------------------
  MAIN function
  *----------------------------------------------------------------------------*/
 int main(){
  low_level=1;
     while(1){
-     
-     while(low_level==1){
-      //first sub loop, check the level of the water.
-      //if(level<((3/4)*water_range){Low_level=0;}
-     }
-        // Create a saw-tooth sound wave
-        // Make the period and volume adjustable using the potentiometers
-        wait_ms(100);
+        while(level.read()<0.75){
+            low_level=!low_level;
+            //Emit one cycle of warble
+            for(i=0; i<1; i+=0.05){   //20 steps 
+                speaker.period(0.010-(0.008*i)); //sweep starts f=100, ends f=500  
+                wait_ms (50); 
+            } 
+        }
+        //first sub loop, check the level of the water.
+        if(temp.read()<0.33){// if low value
+            hival = 0.005;
+            loval = 1;
+        } 
+        else if((temp.read()<0.66)&&(temp.read()>0.33)){
+            
+        }
+        
+            // Create a saw-tooth sound wave
+            // Make the period and volume adjustable using the potentiometers
+            wait_ms(100);
     }
 }
