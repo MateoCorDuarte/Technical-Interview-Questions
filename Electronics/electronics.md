@@ -10,4 +10,4 @@
   
   + *Clock source:* The input signal that drives the timer. It can be: Internal System Clock running in the CPU, External oscillator with a crystal or ceramic resonator (very stable frequency), or PLL(Phase-Locked Loop), which is a multiple of the system clock. 
   + *Prescaler:* a value that divides the value of the clock frequency to count slower or faster. 
-  + *Time Counter register:* register that holds the current count value after the frequency was divided by *Prescaler*
+  + *Time Counter register:* register that holds the current count value after the frequency was divided by *Prescaler*.
