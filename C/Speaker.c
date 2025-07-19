@@ -28,16 +28,19 @@ float note[] = {Mi,No,Mi,No,Mi,No, Mi,No,Mi,No,Mi,No, Mi,No,So,No,Do,No,Re,No,Mi
 float beat[] = {b3,b3,b3,b3,b2,b2, b3,b3,b3,b3,b2,b2, b3,b3,b3,b3,b3,b3,b3,b3,b2,b1, b3,b3,b3,b3,b3,b3,b3,b3, b3,b3,b3,b3,b3,b3,b4,b4,b4,b4, b4,b4,b4,b4,b4,b4,b2,b4,b1, b1,b3,b2,b1};
 
 // Define the analog inputs
-// Write your code
+AnalogIn Volume(AIN1);
+AnalogIn Speed(AIN2);
 
 // Define the PWM output for the speaker
-// Write your code
+PwmOut Speaker(SPEAKER);
 
 // Define the PWM output for the LED
-// Write your code
+PwmOut RedLed(RED_LED);
+PwmOut YellowLed(YELLOW_LED);
+PwmOut BlueLed(BLUE_LED);
 
 // Define the time ticker
-// Write your code
+Ticker timer;
 
 // Static variable
 static int k;
