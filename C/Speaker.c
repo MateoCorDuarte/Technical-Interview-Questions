@@ -1,3 +1,8 @@
+/*
+This is a lab from the ARM Basics of Embedded Systems class. 
+The goal is to learn how to use timers, to do so, I am trying to program a speaker to 
+make a song, by using the timers to triger with the frequencies and periods. 
+*/
 #include "mbed.h"
 
 #define SPEAKER p21
@@ -63,38 +68,47 @@ void timer_ISR(){
 		+ The inputs from the two potentiometers will be used to adjust the volume and the speed
 	*/
 
-	if (k<(sizeof(note)/sizeof(int))){
+	if (k<(sizeof(note)/sizeof(int))){//if K smaler than the size of the note array, then the song is not finished
 		
 		// If statement to test if the note array is currently indexed to a silent note
-		// Write your code here
+		if (note[k]== No){
+			Speaker = 0;
+		} else {// Else statement that sets the speaker PWM period and duty cycle
+			Speaker.period(0.01*note[k]);
+			Speaker = volume;
+		}
 		
-		// Else statement that sets the speaker PWM period and duty cycle
+		
 		// Write your code here
 
 
 		k++;
 			
 		// Set the time for the next ticker interrupt, this is determined by the default music beat and the potentiometer
-		// Write your code here
+		timer.attach(&timer_ISR, ((beat[k]/2)+(speed/2)));
 			
 		// RGB LED indicator
-    	// Write your code here
+    		RedLed = note[k];
+		YellowLed = Speaker;
+		BlueLed = beat[k];
     
 	// Else statement to set k and the speaker to 0 to restart the melody
 	} else {
-		// Write your code here
+		k = 0;
+		speaker = 0; 
 	}
 }
 
 int main() {
 
 	// Initialize the time ticker and set k to 0
-	// Write your code here
+	timer.attach(&timer_ISR,);
 
     while (1) {
 
         // Update the value of the volume and the speed 
-		// Write your code here
+	volume = Volume.read();
+	speed = Speed.read();
 
 		wait_ms(100);
 	}
