@@ -88,21 +88,21 @@ void timer_ISR(){
 		timer.attach(&timer_ISR, ((beat[k]/2)+(speed/2)));
 			
 		// RGB LED indicator
-    		RedLed = note[k];
+    	RedLed = note[k];
 		YellowLed = Speaker;
 		BlueLed = beat[k];
     
 	// Else statement to set k and the speaker to 0 to restart the melody
 	} else {
 		k = 0;
-		speaker = 0; 
+		Speaker = 0; 
 	}
 }
 
 int main() {
 
 	// Initialize the time ticker and set k to 0
-	timer.attach(&timer_ISR,);
+	timer.attach(&timer_ISR,0.1);
 
     while (1) {
 
