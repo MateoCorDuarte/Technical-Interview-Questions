@@ -1,4 +1,29 @@
-/**/
+/*
+In the MBED API, you can either let the SPI class handle the Chip Select (CS) pin automatically or use a DigitalOut object to control it manually. The HAL library doesn't automatically manage the CS pin in the same way, so the standard approach is to use a separate GPIO pin and toggle it yourself before and after the SPI transfer.
+
+Here's how the manual CS control from the MBED example translates to the STM32 HAL.
+
+1. Pin Configuration in STM32CubeIDE
+First, you need to configure the pins in STM32CubeIDE.
+
+SPI Pins: For the Nucleo-F401RE, the pins you specified are part of the SPI1 peripheral.
+
+PA_5 -> SPI1_SCK
+
+PA_6 -> SPI1_MISO
+
+PA_7 -> SPI1_MOSI
+
+Enable the SPI1 peripheral in Full-Duplex Master mode and configure the clock settings (e.g., CPOL, CPHA, prescaler).
+
+CS Pin: The CS pin, PB_6, must be configured as a GPIO Output pin.
+
+In the Pinout & Configuration view, find PB_6 and set it to GPIO_Output.
+
+You can label the pin for clarity, for example, SPI_CS_PIN.
+
+This configuration step is crucial as it generates the necessary code to initialize both the SPI peripheral and the GPIO pin for the CS signal.
+*/
 #include "main.h"
 #include <stdio.h>
 void spi_transfer_byte(uint8_t data){
