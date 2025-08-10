@@ -25,7 +25,7 @@ You can label the pin for clarity, for example, SPI_CS_PIN.
 This configuration step is crucial as it generates the necessary code to initialize both the SPI peripheral and the GPIO pin for the CS signal.
 */
 
-//So far, this option doesn't work.
+//After several tryal and error, I still don't understand what happened.
 #include "main.h"
 #include <stdio.h>
 #define LATCH_LOW()  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
@@ -87,9 +87,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  shiftOut(0b00000001); // LED1 ON
+	  shiftOut(0xAA); // LED1 ON
       HAL_Delay(500);
-      shiftOut(0b00000010); // LED2 ON
+      shiftOut(0x55); // LED2 ON
       HAL_Delay(500);
   }
   /* USER CODE END 3 */
