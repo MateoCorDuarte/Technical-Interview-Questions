@@ -24,18 +24,20 @@ You can label the pin for clarity, for example, SPI_CS_PIN.
 
 This configuration step is crucial as it generates the necessary code to initialize both the SPI peripheral and the GPIO pin for the CS signal.
 */
+
+//So far, this option doesn't work.
 #include "main.h"
 #include <stdio.h>
-void spi_transfer_byte(uint8_t data){
-	// 1. Assert the Chip Select line (pull it low)
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_RESET);
+#define LATCH_LOW()  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
+#define LATCH_HIGH() HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
 
-	// 2. Perform the SPI transfer
-	// Transmit a single byte in blocking mode
-	HAL_SPI_Transmit(&hspi1, &data, 1, HAL_MAX_DELAY);
+SPI_HandleTypeDef hspi1;
 
-	// 3. De-assert the Chip Select line (pull it high)
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_6, GPIO_PIN_SET);
+void shiftOut(uint8_t val)
+{
+    LATCH_LOW();
+    HAL_SPI_Transmit(&hspi1, &val, 1, HAL_MAX_DELAY);
+    LATCH_HIGH();
 }
 /* USER CODE END PFP */
 
@@ -85,8 +87,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  spi_transfer_byte(0xAA);
-	  HAL_Delay(500);
+	  shiftOut(0b00000001); // LED1 ON
+      HAL_Delay(500);
+      shiftOut(0b00000010); // LED2 ON
+      HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
