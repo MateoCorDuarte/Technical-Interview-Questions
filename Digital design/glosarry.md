@@ -7,3 +7,11 @@ The circuit of a Half adder is shown in the next image. This half adder allows o
 Full adder: Allows the sum of two bits along with a previous operation. 
 
 <img width="652" height="470" alt="image" src="https://github.com/user-attachments/assets/b637c681-0415-43fa-aa4d-2c4403eada43" />
+
+*Adders Architecture*
+
+Ripple Carry: Uses full adders in series, is easy to apply, but the critical path is larger. 
+
+Carry look-ahead: Basically uses the Full adders in parallel, modifying the initial circuit so its more optimized depending on the number of bits added.
+
+Carry Save Adder: This one stores the result of the carries and the sums to then sum them and get the result, avoiding the unnecessary carry propagation.
