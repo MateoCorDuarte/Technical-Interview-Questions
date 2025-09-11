@@ -17,10 +17,49 @@ C++ is an object-oriented programming language created by Bjarne Stroustrup. It 
 |*calloc()* and *malloc()* functions are used for memory allocation and *free()*|New operator is used for memory allocation and deletes operator is used for memory deallocation.|
 </details>
 
+<details>
+    <summary>3. What are the different data types present in C++?</summary>
+        <summary>Primary</summary>
+        Primary data types are the fundamental, basic types that are built directly into the             C++ language. They are used to represent simple values. They are also sometimes referred to as primitive data types.
+
+int: Used for storing whole numbers (integers).
+
+float: Used for single-precision floating-point numbers (numbers with a decimal point).
+
+double: Used for double-precision floating-point numbers, offering more precision than float.
+
+char: Used for storing a single character.
+
+bool: Used for logical values, which can be either true or false.
+
+void: Represents the absence of a value. It's often used with functions that do not return a value.
+        <summary>Derived</summary>
+Derived Data Types
+Derived data types are those that are built from or based on primary data types. They are not new types of data but rather ways of organizing or using existing primary types in a structured manner.
+
+Arrays: A collection of elements of the same data type stored in contiguous memory locations. For example, an int array is a collection of ints.
+
+Pointers: Variables that store the memory addresses of other variables. A pointer to an int stores the memory address where an int is located.
+
+References: An alias or alternative name for an existing variable. It provides another way to access the same memory location.
+
+Functions: A function is a block of code that performs a specific task. While not a data storage type itself, its return type and parameters are based on other data types.
+        <summary>User Defined</summary>
+        The programmer creates user-defined data types to meet specific needs. They allow you to create complex data structures by combining primary and derived data types. They are a cornerstone of object-oriented programming.
+
+Structures (struct): A way to group variables of different data types under a single name. This is useful for creating a single record of related information, such as a Student structure that holds a name (string), age (int), and GPA (float).
+
+Classes (class): Similar to structures, but they can also contain functions (called "member functions") in addition to variables (called "data members"). They are the fundamental building blocks of C++'s object-oriented programming, serving as blueprints for objects.
+
+Unions (union): A special data type that allows different data types to be stored in the same memory location. Only one member of the union can be active at a time.
+
+Enumerations (enum): A type that consists of a set of named integer constants. It makes code more readable and easier to maintain by giving meaningful names to a set of numerical values.
+</details>
+
 # Questions regarding C++ syntax.
 <details>
 <summary>3. What are constructors and destructors? </summary>
-Constructors are member function with the same name as the class. They allows to initialize a value to the attributes of the object. 
+Constructors are member functions with the same name as the class. They allow to initialize a value to the attributes of the object. 
 
     There are three types of constructors :
     + Default: Has no arguments.
@@ -34,7 +73,7 @@ When you call by value (int number), the function takes a copy of the variableâ€
 </details>
 
 <details>
-<summary>5. what is a namespace?</summary>
+<summary>5. What is a namespace?</summary>
 Namespace provide the space where we can define or declare identifier i.e. variable,  method, classes.
 A namespace, give you the advantage of defining the space or context in which identifiers are defined i.e. variable, method, classes. In essence, a namespace defines a scope.
 </details>
