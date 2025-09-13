@@ -15,3 +15,13 @@ Ripple Carry: Uses full adders in series, is easy to apply, but the critical pat
 Carry look-ahead: Basically uses the Full adders in parallel, modifying the initial circuit so its more optimized depending on the number of bits added.
 
 Carry Save Adder: This one stores the result of the carries and the sums to then sum them and get the result, avoiding the unnecessary carry propagation.
+
+
+
+*Filters*
+FIR (Finite Impulse Response): What makes a filter an FIR filter is being Finite and having no feedback.
+<img width="450" height="261" alt="image" src="https://github.com/user-attachments/assets/fe56c840-bdf5-4e5e-addd-d5b3a0d4762c" />
+
+IRR (Infinite impulse response): On the other side IRR is basically the oposite, it is infinite and holds feedback. 
+<img width="453" height="328" alt="image" src="https://github.com/user-attachments/assets/53f5b549-7609-4f39-88e5-0894c20fb186" />
+
